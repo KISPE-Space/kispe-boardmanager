@@ -1,0 +1,373 @@
+# See: https://arduino.github.io/arduino-cli/latest/platform-specification/
+
+menu.pnum=Board part number
+
+menu.xserial=U(S)ART support
+menu.usb=USB support (if available)
+menu.xusb=USB speed (if available)
+menu.virtio=Virtual serial support
+
+menu.opt=Optimize
+menu.dbg=Debug symbols and core logs
+menu.rtlib=C Runtime Library
+menu.upload_method=Upload method
+
+################################################################################
+# Nucleo 144 boards
+Nucleo_Boards.name=Nucleo Boards
+Nucleo_Boards.build.core=arduino
+Nucleo_Boards.build.board=Nucleo_144
+Nucleo_Boards.build.variant_h=variant_{build.board}.h
+Nucleo_Boards.build.st_extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+Nucleo_Boards.build.flash_offset=0x0
+Nucleo_Boards.upload.maximum_size=0
+Nucleo_Boards.upload.maximum_data_size=0
+Nucleo_Boards.programmer.default=stlink
+Nucleo_Boards.vid.0=0x0483
+Nucleo_Boards.vid.1=0x0483
+
+
+# STlink V1/V2.1/V3
+Nucleo_Boards.pid.1=0x3744
+Nucleo_Boards.vid.2=0x0483
+Nucleo_Boards.pid.2=0x3748
+Nucleo_Boards.vid.3=0x0483
+Nucleo_Boards.pid.3=0x374b
+Nucleo_Boards.vid.4=0x0483
+Nucleo_Boards.pid.4=0x374e
+Nucleo_Boards.vid.5=0x0483
+Nucleo_Boards.pid.5=0x374f
+Nucleo_Boards.vid.6=0x0483
+Nucleo_Boards.pid.6=0x3752
+Nucleo_Boards.vid.7=0x0483
+Nucleo_Boards.pid.7=0x3753
+
+# NUCLEO_H753ZI board
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI=Nucleo H753ZI
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.node=NODE_H753ZI
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.upload.maximum_size=2097152
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.upload.maximum_data_size=524288
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.build.mcu=cortex-m7
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.build.fpu=-mfpu=fpv4-sp-d16
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.build.float-abi=-mfloat-abi=hard
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.build.board=NUCLEO_H753ZI
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.build.series=STM32H7xx
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.build.product_line=STM32H753xx
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.build.variant=NUCLEO_H753ZI
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.build.variant_h=variant_NUCLEO_H753ZI.h
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.debug.server.openocd.scripts.2=target/stm32h7x.cfg
+Nucleo_Boards.menu.pnum.NUCLEO_H753ZI.debug.svd_file={runtime.tools.STM32_SVD.path}/svd/STM32H7xx/STM32H753.svd
+
+# Upload menu
+Nucleo_Boards.menu.upload_method.MassStorage=Mass Storage
+Nucleo_Boards.menu.upload_method.MassStorage.upload.protocol=
+Nucleo_Boards.menu.upload_method.MassStorage.upload.tool=massStorageCopy
+
+Nucleo_Boards.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
+Nucleo_Boards.menu.upload_method.swdMethod.upload.protocol=swd
+Nucleo_Boards.menu.upload_method.swdMethod.upload.options=
+Nucleo_Boards.menu.upload_method.swdMethod.upload.tool=stm32CubeProg
+
+Nucleo_Boards.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
+Nucleo_Boards.menu.upload_method.serialMethod.upload.protocol=serial
+Nucleo_Boards.menu.upload_method.serialMethod.upload.options=-c {serial.port.file}
+Nucleo_Boards.menu.upload_method.serialMethod.upload.tool=stm32CubeProg
+
+Nucleo_Boards.menu.upload_method.dfuMethod=STM32CubeProgrammer (DFU)
+Nucleo_Boards.menu.upload_method.dfuMethod.upload.protocol=dfu
+Nucleo_Boards.menu.upload_method.dfuMethod.upload.options=-v {upload.vid} -p {upload.pid}
+Nucleo_Boards.menu.upload_method.dfuMethod.upload.tool=stm32CubeProg
+
+# USB connectivity
+Nucleo_Boards.menu.usb.none=None
+Nucleo_Boards.menu.usb.CDCgen=CDC (generic 'Serial' supersede U(S)ART)
+Nucleo_Boards.menu.usb.CDCgen.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
+Nucleo_Boards.menu.usb.CDC=CDC (no generic 'Serial')
+Nucleo_Boards.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
+Nucleo_Boards.menu.usb.HID=HID (keyboard and mouse)
+Nucleo_Boards.menu.usb.HID.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE
+Nucleo_Boards.menu.xusb.FS=Low/Full Speed
+Nucleo_Boards.menu.xusb.HS=High Speed
+Nucleo_Boards.menu.xusb.HS.build.usb_speed=-DUSE_USB_HS
+Nucleo_Boards.menu.xusb.HSFS=High Speed in Full Speed mode
+Nucleo_Boards.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
+
+# Optimizations
+Nucleo_Boards.menu.opt.osstd=Smallest (-Os default)
+Nucleo_Boards.menu.opt.oslto=Smallest (-Os) with LTO
+Nucleo_Boards.menu.opt.oslto.build.flags.optimize=-Os -flto
+Nucleo_Boards.menu.opt.o1std=Fast (-O1)
+Nucleo_Boards.menu.opt.o1std.build.flags.optimize=-O1
+Nucleo_Boards.menu.opt.o1lto=Fast (-O1) with LTO
+Nucleo_Boards.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+Nucleo_Boards.menu.opt.o2std=Faster (-O2)
+Nucleo_Boards.menu.opt.o2std.build.flags.optimize=-O2
+Nucleo_Boards.menu.opt.o2lto=Faster (-O2) with LTO
+Nucleo_Boards.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+Nucleo_Boards.menu.opt.o3std=Fastest (-O3)
+Nucleo_Boards.menu.opt.o3std.build.flags.optimize=-O3
+Nucleo_Boards.menu.opt.o3lto=Fastest (-O3) with LTO
+Nucleo_Boards.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+Nucleo_Boards.menu.opt.ogstd=Debug (-Og)
+Nucleo_Boards.menu.opt.ogstd.build.flags.optimize=-Og
+Nucleo_Boards.menu.opt.o0std=No Optimization (-O0)
+Nucleo_Boards.menu.opt.o0std.build.flags.optimize=-O0
+
+# C Runtime Library
+Nucleo_Boards.menu.rtlib.nano=Newlib Nano (default)
+Nucleo_Boards.menu.rtlib.nanofp=Newlib Nano + Float Printf
+Nucleo_Boards.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+Nucleo_Boards.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+Nucleo_Boards.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+Nucleo_Boards.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+Nucleo_Boards.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+Nucleo_Boards.menu.rtlib.full=Newlib Standard
+Nucleo_Boards.menu.rtlib.full.build.flags.ldspecs=
+
+######################################################################################################
+
+## OSSAT
+OSSAT.name=OSSAT OBC
+OSSAT.build.core=arduino
+OSSAT.build.board=GENERIC_H753ZITX
+OSSAT.build.st_extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+OSSAT.build.fpu=-mfpu=fpv4-sp-d16
+OSSAT.build.float-abi=-mfloat-abi=hard
+OSSAT.build.series=STM32H7xx
+OSSAT.build.mcu=cortex-m7
+OSSAT.build.flash_offset=0x0
+OSSAT.upload.maximum_size=0
+OSSAT.upload.maximum_data_size=0
+OSSAT.programmer.default=stlink
+OSSAT.debug.server.openocd.scripts.2=target/stm32h7x.cfg
+OSSAT.vid.0=0x0483
+OSSAT.pid.0=0x5740
+
+# STlink V1/V2.1/V3
+OSSAT.pid.1=0x3744
+OSSAT.vid.2=0x0483
+OSSAT.pid.2=0x3748
+OSSAT.vid.3=0x0483
+OSSAT.pid.3=0x374b
+OSSAT.vid.4=0x0483
+OSSAT.pid.4=0x374e
+OSSAT.vid.5=0x0483
+OSSAT.pid.5=0x374f
+OSSAT.vid.6=0x0483
+OSSAT.pid.6=0x3752
+OSSAT.vid.7=0x0483
+OSSAT.pid.7=0x3753
+
+
+# STM32H753ZI board
+OSSAT.menu.pnum.STM32H753ZIT=STM32H753ZIT
+OSSAT.menu.pnum.STM32H753ZIT.upload.maximum_size=2097152
+OSSAT.menu.pnum.STM32H753ZIT.upload.maximum_data_size=524288
+OSSAT.menu.pnum.STM32H753ZIT.build.board=GENERIC_H753ZITX
+OSSAT.menu.pnum.STM32H753ZIT.build.product_line=STM32H753xx
+OSSAT.menu.pnum.STM32H753ZIT.build.variant=OSSAT
+OSSAT.menu.pnum.STM32H753ZIT.build.variant_h=variant_STM32H753ZIT.h
+OSSAT.menu.pnum.STM32H753ZIT.debug.server.openocd.scripts.2=target/stm32h7x.cfg
+OSSAT.menu.pnum.STM32H753ZIT.debug.svd_file={runtime.tools.STM32_SVD.path}/svd/STM32H7xx/STM32H753.svd
+
+# Upload menu
+
+OSSAT.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
+OSSAT.menu.upload_method.swdMethod.upload.protocol=swd
+OSSAT.menu.upload_method.swdMethod.upload.options=
+OSSAT.menu.upload_method.swdMethod.upload.tool=stm32CubeProg
+
+OSSAT.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
+OSSAT.menu.upload_method.serialMethod.upload.protocol=serial
+OSSAT.menu.upload_method.serialMethod.upload.options=-c {serial.port.file}
+OSSAT.menu.upload_method.serialMethod.upload.tool=stm32CubeProg
+
+OSSAT.menu.upload_method.dfuMethod=STM32CubeProgrammer (DFU)
+OSSAT.menu.upload_method.dfuMethod.upload.protocol=dfu
+OSSAT.menu.upload_method.dfuMethod.upload.options=-v {upload.vid} -p {upload.pid}
+OSSAT.menu.upload_method.dfuMethod.upload.tool=stm32CubeProg
+
+# USB connectivity
+OSSAT.menu.usb.none=None
+OSSAT.menu.usb.CDCgen=CDC (generic 'Serial' supersede U(S)ART)
+OSSAT.menu.usb.CDCgen.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
+OSSAT.menu.usb.CDC=CDC (no generic 'Serial')
+OSSAT.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
+OSSAT.menu.usb.HID=HID (keyboard and mouse)
+OSSAT.menu.usb.HID.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE
+OSSAT.menu.xusb.FS=Low/Full Speed
+OSSAT.menu.xusb.HS=High Speed
+OSSAT.menu.xusb.HS.build.usb_speed=-DUSE_USB_HS
+OSSAT.menu.xusb.HSFS=High Speed in Full Speed mode
+OSSAT.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
+
+# Optimizations
+OSSAT.menu.opt.osstd=Smallest (-Os default)
+OSSAT.menu.opt.oslto=Smallest (-Os) with LTO
+OSSAT.menu.opt.oslto.build.flags.optimize=-Os -flto
+OSSAT.menu.opt.o1std=Fast (-O1)
+OSSAT.menu.opt.o1std.build.flags.optimize=-O1
+OSSAT.menu.opt.o1lto=Fast (-O1) with LTO
+OSSAT.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+OSSAT.menu.opt.o2std=Faster (-O2)
+OSSAT.menu.opt.o2std.build.flags.optimize=-O2
+OSSAT.menu.opt.o2lto=Faster (-O2) with LTO
+OSSAT.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+OSSAT.menu.opt.o3std=Fastest (-O3)
+OSSAT.menu.opt.o3std.build.flags.optimize=-O3
+OSSAT.menu.opt.o3lto=Fastest (-O3) with LTO
+OSSAT.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+OSSAT.menu.opt.ogstd=Debug (-Og)
+OSSAT.menu.opt.ogstd.build.flags.optimize=-Og
+OSSAT.menu.opt.o0std=No Optimization (-O0)
+OSSAT.menu.opt.o0std.build.flags.optimize=-O0
+
+# C Runtime Library
+OSSAT.menu.rtlib.nano=Newlib Nano (default)
+OSSAT.menu.rtlib.nanofp=Newlib Nano + Float Printf
+OSSAT.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+OSSAT.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+OSSAT.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+OSSAT.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+OSSAT.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+OSSAT.menu.rtlib.full=Newlib Standard
+OSSAT.menu.rtlib.full.build.flags.ldspecs=
+
+# debug
+OSSAT.menu.dbg.none=None
+OSSAT.menu.dbg.enable_sym=Symbols Enabled (-g)
+OSSAT.menu.dbg.enable_sym.build.flags.debug=-g -DNDEBUG
+OSSAT.menu.dbg.enable_log=Core logs Enabled
+OSSAT.menu.dbg.enable_log.build.flags.debug=
+OSSAT.menu.dbg.enable_all=Core Logs and Symbols Enabled (-g)
+OSSAT.menu.dbg.enable_all.build.flags.debug=-g
+
+OSSAT.menu.xserial.generic=Enabled (generic 'Serial')
+OSSAT.menu.xserial.none=Enabled (no generic 'Serial')
+OSSAT.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+OSSAT.menu.xserial.disabled=Disabled (No Serial support)
+OSSAT.menu.xserial.disabled.build.xSerial=
+
+###############################################################################################################
+
+## SATLL
+SATLL.name=SATLL OBC
+SATLL.build.core=arduino
+SATLL.build.board=GENERIC_H753VITX
+SATLL.build.st_extra_flags=-D{build.product_line} {build.enable_usb} {build.xSerial}
+SATLL.build.fpu=-mfpu=fpv4-sp-d16
+SATLL.build.float-abi=-mfloat-abi=hard
+SATLL.build.series=STM32H7xx
+SATLL.build.mcu=cortex-m7
+SATLL.build.flash_offset=0x0
+SATLL.upload.maximum_size=0
+SATLL.upload.maximum_data_size=0
+SATLL.programmer.default=stlink
+SATLL.debug.server.openocd.scripts.2=target/stm32h7x.cfg
+SATLL.vid.0=0x0483
+SATLL.pid.0=0x5740
+
+# STlink V1/V2.1/V3
+SATLL.pid.1=0x3744
+SATLL.vid.2=0x0483
+SATLL.pid.2=0x3748
+SATLL.vid.3=0x0483
+SATLL.pid.3=0x374b
+SATLL.vid.4=0x0483
+SATLL.pid.4=0x374e
+SATLL.vid.5=0x0483
+SATLL.pid.5=0x374f
+SATLL.vid.6=0x0483
+SATLL.pid.6=0x3752
+SATLL.vid.7=0x0483
+SATLL.pid.7=0x3753
+
+
+# STM32H753VI board
+SATLL.menu.pnum.STM32H753VIT=STM32H753VIT
+SATLL.menu.pnum.STM32H753VIT.upload.maximum_size=2097152
+SATLL.menu.pnum.STM32H753VIT.upload.maximum_data_size=884736
+SATLL.menu.pnum.STM32H753VIT.build.board=GENERIC_H753VITX
+SATLL.menu.pnum.STM32H753VIT.build.product_line=STM32H753xx
+SATLL.menu.pnum.STM32H753VIT.build.variant=SATLL
+SATLL.menu.pnum.STM32H753VIT.build.variant_h=variant_STM32H753VIT.h
+SATLL.menu.pnum.STM32H753VIT.debug.server.openocd.scripts.2=target/stm32h7x.cfg
+SATLL.menu.pnum.STM32H753VIT.debug.svd_file={runtime.tools.STM32_SVD.path}/svd/STM32H7xx/STM32H753.svd
+
+# Upload menu
+
+SATLL.menu.upload_method.swdMethod=STM32CubeProgrammer (SWD)
+SATLL.menu.upload_method.swdMethod.upload.protocol=swd
+SATLL.menu.upload_method.swdMethod.upload.options=
+SATLL.menu.upload_method.swdMethod.upload.tool=stm32CubeProg
+
+SATLL.menu.upload_method.serialMethod=STM32CubeProgrammer (Serial)
+SATLL.menu.upload_method.serialMethod.upload.protocol=serial
+SATLL.menu.upload_method.serialMethod.upload.options=-c {serial.port.file}
+SATLL.menu.upload_method.serialMethod.upload.tool=stm32CubeProg
+
+SATLL.menu.upload_method.dfuMethod=STM32CubeProgrammer (DFU)
+SATLL.menu.upload_method.dfuMethod.upload.protocol=dfu
+SATLL.menu.upload_method.dfuMethod.upload.options=-v {upload.vid} -p {upload.pid}
+SATLL.menu.upload_method.dfuMethod.upload.tool=stm32CubeProg
+
+# USB connectivity
+SATLL.menu.usb.none=None
+SATLL.menu.usb.CDCgen=CDC (generic 'Serial' supersede U(S)ART)
+SATLL.menu.usb.CDCgen.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC
+SATLL.menu.usb.CDC=CDC (no generic 'Serial')
+SATLL.menu.usb.CDC.build.enable_usb={build.usb_flags} -DUSBD_USE_CDC -DDISABLE_GENERIC_SERIALUSB
+SATLL.menu.usb.HID=HID (keyboard and mouse)
+SATLL.menu.usb.HID.build.enable_usb={build.usb_flags} -DUSBD_USE_HID_COMPOSITE
+SATLL.menu.xusb.FS=Low/Full Speed
+SATLL.menu.xusb.HS=High Speed
+SATLL.menu.xusb.HS.build.usb_speed=-DUSE_USB_HS
+SATLL.menu.xusb.HSFS=High Speed in Full Speed mode
+SATLL.menu.xusb.HSFS.build.usb_speed=-DUSE_USB_HS -DUSE_USB_HS_IN_FS
+
+# Optimizations
+SATLL.menu.opt.osstd=Smallest (-Os default)
+SATLL.menu.opt.oslto=Smallest (-Os) with LTO
+SATLL.menu.opt.oslto.build.flags.optimize=-Os -flto
+SATLL.menu.opt.o1std=Fast (-O1)
+SATLL.menu.opt.o1std.build.flags.optimize=-O1
+SATLL.menu.opt.o1lto=Fast (-O1) with LTO
+SATLL.menu.opt.o1lto.build.flags.optimize=-O1 -flto
+SATLL.menu.opt.o2std=Faster (-O2)
+SATLL.menu.opt.o2std.build.flags.optimize=-O2
+SATLL.menu.opt.o2lto=Faster (-O2) with LTO
+SATLL.menu.opt.o2lto.build.flags.optimize=-O2 -flto
+SATLL.menu.opt.o3std=Fastest (-O3)
+SATLL.menu.opt.o3std.build.flags.optimize=-O3
+SATLL.menu.opt.o3lto=Fastest (-O3) with LTO
+SATLL.menu.opt.o3lto.build.flags.optimize=-O3 -flto
+SATLL.menu.opt.ogstd=Debug (-Og)
+SATLL.menu.opt.ogstd.build.flags.optimize=-Og
+SATLL.menu.opt.o0std=No Optimization (-O0)
+SATLL.menu.opt.o0std.build.flags.optimize=-O0
+
+# C Runtime Library
+SATLL.menu.rtlib.nano=Newlib Nano (default)
+SATLL.menu.rtlib.nanofp=Newlib Nano + Float Printf
+SATLL.menu.rtlib.nanofp.build.flags.ldspecs=--specs=nano.specs -u _printf_float
+SATLL.menu.rtlib.nanofs=Newlib Nano + Float Scanf
+SATLL.menu.rtlib.nanofs.build.flags.ldspecs=--specs=nano.specs -u _scanf_float
+SATLL.menu.rtlib.nanofps=Newlib Nano + Float Printf/Scanf
+SATLL.menu.rtlib.nanofps.build.flags.ldspecs=--specs=nano.specs -u _printf_float -u _scanf_float
+SATLL.menu.rtlib.full=Newlib Standard
+SATLL.menu.rtlib.full.build.flags.ldspecs=
+
+# debug
+SATLL.menu.dbg.none=None
+SATLL.menu.dbg.enable_sym=Symbols Enabled (-g)
+SATLL.menu.dbg.enable_sym.build.flags.debug=-g -DNDEBUG
+SATLL.menu.dbg.enable_log=Core logs Enabled
+SATLL.menu.dbg.enable_log.build.flags.debug=
+SATLL.menu.dbg.enable_all=Core Logs and Symbols Enabled (-g)
+SATLL.menu.dbg.enable_all.build.flags.debug=-g
+
+SATLL.menu.xserial.generic=Enabled (generic 'Serial')
+SATLL.menu.xserial.none=Enabled (no generic 'Serial')
+SATLL.menu.xserial.none.build.xSerial=-DHAL_UART_MODULE_ENABLED -DHWSERIAL_NONE
+SATLL.menu.xserial.disabled=Disabled (No Serial support)
+SATLL.menu.xserial.disabled.build.xSerial=
