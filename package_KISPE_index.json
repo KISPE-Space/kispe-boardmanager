@@ -10,9 +10,9 @@
                   "architecture": "stm32",
                   "version": "0.0.1",
                   "category": "Contributed",
-                  "url": "https://github.com/KISPE-Harvey/kispe-boardmanager/blob/main/stm32/KISPE-STM-0.0.1.zip?raw=true",
+                  "url": "https://github.com/KISPE-Space/kispe-boardmanager/blob/SATLL-Integration/stm32/KISPE-STM-0.0.1.zip?raw=true",
                   "archiveFileName": "KISPE-STM-0.0.1.zip",
-                  "checksum": "SHA-256:ce0dd869b794846f8b49c6707285eac5d862e263e08239a336e024643f6c2530",
+                  "checksum": "SHA-256:16315A7D4F1D7EDCF2D00E52475EE0361C2DE52C43A47982D650B32FFDA0BE01",
                   "size": "47101003",
                   "boards": [
                       {
@@ -57,7 +57,7 @@
                     "architecture": "rp2040",
                     "version": "0.0.1",
                     "category": "Contributed",
-                    "url": "https://github.com/KISPE-Harvey/kispe-boardmanager/blob/main/rp2040/KISPE-RP2040-0.0.1.zip?raw=true",
+                    "url": "https://github.com/KISPE-Space/kispe-boardmanager/blob/SATLL-Integration/rp2040/KISPE-RP2040-0.0.1.zip?raw=true",
                     "archiveFileName": "KISPE-RP2040-0.0.1.zip",
                     "checksum": "SHA-256:40b3e313a4cce01cb24bf28c58496e10135560193798b253035816cb744aae9e",
                     "size": "97714435",
