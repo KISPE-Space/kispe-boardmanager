@@ -5,59 +5,59 @@
           "maintainer": "KISPE Space",
           "websiteURL": "https://www.kispe.co.uk/",
           "platforms": [
-              {
-                  "name": "KISPE STM32",
-                  "architecture": "stm32",
-                  "version": "0.0.1",
-                  "category": "Contributed",
-                  "url": "https://github.com/KISPE-Harvey/kispe-boardmanager/blob/main/stm32/KISPE-STM-0.0.1.zip?raw=true",
-                  "archiveFileName": "KISPE-STM-0.0.1.zip",
-                  "checksum": "SHA-256:ce0dd869b794846f8b49c6707285eac5d862e263e08239a336e024643f6c2530",
-                  "size": "47101003",
-                  "boards": [
-                      {
-                          "name": "Nucleo Boards"
-                      },
-                      {
-                        "name": "OSSAT"
-                      },
-                      {
-                        "name": "SATLL"
-                      }
-                  ],
-                  "toolsDependencies": [
-                      {
-                        "packager": "KISPE",
-                        "name": "xpack-arm-none-eabi-gcc",
-                        "version": "13.2.1-1.1"
-                      },
-                      {
-                        "packager": "KISPE",
-                        "name": "xpack-openocd",
-                        "version": "0.12.0-3"
-                      },
-                      {
-                        "packager": "KISPE",
-                        "name": "STM32Tools",
-                        "version": "2.2.2"
-                      },
-                      {
-                        "packager": "KISPE",
-                        "name": "CMSIS",
-                        "version": "5.9.0"
-                      },
-                      {
-                        "packager": "KISPE",
-                        "name": "STM32_SVD",
-                        "version": "1.15.1"
-                      }
-                    ]
-                  },{
+            {
+              "name": "KISPE STM32",
+              "architecture": "stm32",
+              "version": "0.0.1",
+              "category": "Contributed",
+              "url": "https://github.com/KISPE-Space/kispe-boardmanager/blob/SATLL-Integration/stm32/KISPE-STM-0.0.1.zip?raw=true",
+              "archiveFileName": "KISPE-STM-0.0.1.zip",
+              "checksum": "SHA-256:D752909636FBF27CF1A91E1C894BF84D3715A7AE8A94E589948857008090A1A2",
+              "size": "47101003",
+              "boards": [
+                {
+                  "name": "Nucleo Boards"
+                },
+                {
+                  "name": "OSSAT"
+                },
+                {
+                  "name": "SATLL"
+                }
+              ],
+              "toolsDependencies": [
+                {
+                  "packager": "KISPE",
+                  "name": "xpack-arm-none-eabi-gcc",
+                  "version": "13.2.1-1.1"
+                },
+                {
+                  "packager": "KISPE",
+                  "name": "xpack-openocd",
+                  "version": "0.12.0-3"
+                },
+                {
+                  "packager": "KISPE",
+                  "name": "STM32Tools",
+                  "version": "2.2.2"
+                },
+                {
+                  "packager": "KISPE",
+                  "name": "CMSIS",
+                  "version": "5.9.0"
+                },
+                {
+                  "packager": "KISPE",
+                  "name": "STM32_SVD",
+                  "version": "1.15.1"
+                }
+              ]
+            },{
                     "name": "KISPE RP2040",
                     "architecture": "rp2040",
                     "version": "0.0.1",
                     "category": "Contributed",
-                    "url": "https://github.com/KISPE-Harvey/kispe-boardmanager/blob/main/rp2040/KISPE-RP2040-0.0.1.zip?raw=true",
+                    "url": "https://github.com/KISPE-Space/kispe-boardmanager/blob/SATLL-Integration/rp2040/KISPE-RP2040-0.0.1.zip?raw=true",
                     "archiveFileName": "KISPE-RP2040-0.0.1.zip",
                     "checksum": "SHA-256:40b3e313a4cce01cb24bf28c58496e10135560193798b253035816cb744aae9e",
                     "size": "97714435",
