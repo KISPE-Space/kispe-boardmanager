@@ -8,10 +8,10 @@
               {
                   "name": "KISPE STM32",
                   "architecture": "stm32",
-                  "version": "0.0.1",
+                  "version": "0.0.2",
                   "category": "Contributed",
-                  "url": "https://github.com/KISPE-Harvey/kispe-boardmanager/blob/stm32/stm32/KISPE-STM-0.0.1.zip?raw=true",
-                  "archiveFileName": "KISPE-STM-0.0.1.zip",
+                  "url": "https://github.com/KISPE-Harvey/kispe-boardmanager/blob/stm32/stm32/KISPE-STM-0.0.2.zip?raw=true",
+                  "archiveFileName": "KISPE-STM-0.0.2.zip",
                   "checksum": "SHA-256:16315a7d4f1d7edcf2d00e52475ee0361c2de52c43a47982d650b32ffda0be01",
                   "size": "47101401",
                   "boards": [
